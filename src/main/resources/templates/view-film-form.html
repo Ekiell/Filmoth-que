@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+		data-th-replace="~{layouts/layout :: layout-filmotheque( 
+						titrePage=~{:: title},
+						contenuPage=~{:: main},
+						ressourcesSupp=~{:: #ressources-css})}">
+<head>
+	<!-- Créer comme titre de page -->
+	<title>Créer</title>
+	<!-- Ajout de CSS tp-form.css -->
+	<th:block id="ressources-css">
+		<link rel="stylesheet" data-th-href="@{/css/demo-form.css}">
+	</th:block>
+</head>
+<body>
+	<main>
+		<form>
+			<h1>Création d'un film [En cours de construction]</h1>
+			<ul class="flex-outer">
+				<li>
+					<label for="inputGenre">Genre : </label> 
+					<select id="inputGenre">
+						<option data-th-each="genre : ${genresEnSession}"
+						data-th-text="${genre.titre}"
+						data-th-value="${genre.id}"
+						></option>
+				</select>
+				</li>
+			</ul>
+		</form>
+	</main>
+</body>
+</html>

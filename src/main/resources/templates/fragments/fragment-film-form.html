@@ -1,0 +1,17 @@
+<form xmlns:th="http://www.thymeleaf.org" data-th-fragment="frag-film-form">
+<h1 style="text-align:center; padding:10px;">Détails du film</h1>
+	<ul class="flex-outer">
+		<li><label>Genre :</label><input type="text" disabled data-th-value="${film.genre.titre}"/></li>
+		<li><label>Année :</label><input type="text" disabled data-th-value="${film.annee}"/></li>
+		<li><label>Titre :</label><input type="text" disabled data-th-value="${film.titre}"/></li>
+		<li><label>Réalisateur :</label><input type="text" disabled data-th-value="${film.realisateur.prenom + ' ' + film.realisateur.nom}"/></li>
+		<li><label>Durée :</label><input type="text" disabled data-th-value="${film.duree} + ' minutes'"/></li>
+		<li>
+			<label>Acteurs :</label>
+			<select disabled multiple>
+				<option data-th-each="acteur:${film.acteurs}" data-th-text="${'-' + ' ' + acteur.prenom + ' ' + acteur.nom}"></option>
+			</select>
+		</li>
+		<li><label>Synopsis :</label><textarea disabled data-th-text="${film.synopsis}" rows="3"></textarea></li>
+	</ul>
+</form>

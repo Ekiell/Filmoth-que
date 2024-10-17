@@ -1,0 +1,11 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org" data-th-replace="~{layouts/layout :: layout-filmotheque(titrePage=~{:: title}, 
+																								  contenuPage=~{:: main}, 
+																								  ressourcesSupp=~{:: #formCss})}">
+
+<title>Détail Film</title>
+<link id="formCss" rel="stylesheet" data-th-href="@{/css/demo-form.css}">
+
+<main>
+	<form data-th-replace="~{fragments/fragment-film-form :: frag-film-form}">	</form>
+</main>

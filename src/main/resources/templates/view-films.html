@@ -1,0 +1,35 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org" data-th-replace="~{layouts/layout :: layout-filmotheque(titrePage=~{:: title},
+																							contenuPage=~{:: main},
+																							ressourcesSupp=~{:: #ressources-css})}">
+
+	<title>Films</title>
+	<th:block id="ressources-css">
+	<link rel="stylesheet" data-th-href="@{/css/demo-table.css}">
+	</th:block>
+	
+	<main>
+	<h1 style="text-align:center; padding:10px;">Voici la bibliothèque des Films</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Genre</th>
+				<th>Année</th>
+				<th>Titre</th>
+				<th>Réalisateur</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-th-each="film : ${films}">
+				<td data-th-text="${film.genre.titre}"></td>
+				<td data-th-text="${film.annee}"></td>
+				<td data-th-text="${film.titre}"></td>
+				<td data-th-text="${film.realisateur.prenom + ' ' + film.realisateur.nom}"></td>
+				<td>
+					<a data-th-href="@{/films/detail(id=${film.id})}">Détail</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</main>
